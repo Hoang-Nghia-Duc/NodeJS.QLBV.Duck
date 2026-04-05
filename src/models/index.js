@@ -1,5 +1,5 @@
 'use strict';
-
+require('dotenv').config();// src/models/index.js
 const fs = require('fs');
 const path = require('path');
 const Sequelize = require('sequelize');
