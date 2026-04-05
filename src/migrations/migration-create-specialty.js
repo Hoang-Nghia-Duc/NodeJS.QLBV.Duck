@@ -1,5 +1,6 @@
 'use strict';
 
+const { name } = require("ejs");
 const e = require("express");
 
 module.exports = {
@@ -10,6 +11,9 @@ module.exports = {
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
+      },
+      name: {
+        type: Sequelize.STRING
       },
       description: {
         type: Sequelize.TEXT
