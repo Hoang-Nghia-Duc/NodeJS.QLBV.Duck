@@ -22,7 +22,7 @@ fs
   })
   .forEach(file => {
     const model = require(path.join(__dirname, file))(sequelize, Sequelize.DataTypes);
-    db[model.name] = model;
+    db[model.name] = model; // Đưa model vào đối tượng db với tên model làm key
   });
 
 Object.keys(db).forEach(modelName => {
