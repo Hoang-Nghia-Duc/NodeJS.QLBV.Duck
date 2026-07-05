@@ -16,7 +16,7 @@ let getCRUD = async (req, res) => {
 
 let postCRUD = async (req, res) => {
     let message = await CRUDService.createNewUser(req.body);
-    return res.send("post crud from server");
+    return res.redirect("/get-crud");
 }
 
 let displayGetCRUD = async (req, res) => {
@@ -48,12 +48,9 @@ let putCRUD = async (req, res) => {
 }
 
 let deleteCRUD = async (req, res) => {
-    let id = req.query.id;
+    let id = req.body.id;
     await CRUDService.deleteUserById(id);
-    let allUsers = await CRUDService.getAllUser();
-    return res.render("displayCRUD.ejs", {
-        dataTable: allUsers,
-    });
+    return res.redirect("/get-crud");
 }  
 
 

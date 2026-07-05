@@ -20,6 +20,7 @@
 <body>
     <div class="container">
         <div class="row mt-3">
+            <button class="btn btn-primary mb-3" onclick="window.location.href='/crud'">Create new user</button>
             <table class="table">
                 <thead>
                     <tr>
@@ -52,10 +53,11 @@
                             <td>
 
                                 <a href="/edit-crud?id=<%= user.id %>" class="btn btn-warning btn-sm">Edit</a>
-                                <a href="/delete-crud?id=<%= user.id %>" class="btn btn-danger btn-sm"
-                                    onclick="return confirm('Bạn có chắc muốn xoá không?')">
-                                    Delete
-                                </a>
+                                <form action="/delete-crud" method="POST" style="display:inline;"
+                                    onsubmit="return confirm('Bạn có chắc muốn xoá không?')">
+                                    <input type="hidden" name="id" value="<%= user.id %>">
+                                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                </form>
                             </td>
                         </tr>
                         <% }) %>
